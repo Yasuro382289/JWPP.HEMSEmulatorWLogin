@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>季節の設定</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container-fluid">
+<header>
+<h3>季節が変えられます</h3>
+<p>エアコン停止・送風時の室温変化に反映されます。</p>
+</header>
+</div>
+<div class="container">
+<main>
+	<div class="row">
+		<div class="col-4 mb-3">
+		
+		<form action="" method="post" th:object="${season}">
+			<table class="table table-bordered">
+			<tr>
+				<th>季節 </th>
+				<!--  <td> <input type="text" th:field="*{seasonVal}"> </td> -->
+				<td>
+				<select class="form-select" th:field="*{seasonVal}">					
+					<option value="1">夏</option>
+					<option value="-1">冬</option>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="2"> <input type="submit" class="btn btn-secondary btn-sm" value="変更する"> </th>
+			</tr>
+			</table>
+		</form>
+		</div>
+	</div>
+</main>
+</div>
+
+<div class="container-fluid">
+<footer>
+	<p> <small> 令和5年3月期 ZDRIVE Javaシステム科(3か月) Webシステム開発応用実習 課題 </small> </p>
+</footer>
+</div>
+
+</body>
+</html>

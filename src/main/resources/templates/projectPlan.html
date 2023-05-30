@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>企画</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container-fluid">
+<header>
+<h2>Webシステム開発応用実習 企画書</h2>
+</header>
+</div>
+<div class="container">
+<main>
+	<div class="row">
+		<div class="col-5 mb-3">
+		<h3> プロジェクトの名称</h3> 
+		<p> エアコン自動調整システム </p>
+		<h3> 背景・目的など </h3>
+		<p>
+		近年電気代が高騰しており、電力消費を削減することが強く望まれている。一般家庭において電力消費を削減するためには、
+		消費電力の大きい機器、例えばエアコン、をこまめに制御するのがよい。近年のエアコンにはWi-Fiインタフェースが設けられ、
+		インターネット経由での制御が可能になっている。そこで今回、このエアコンの遠隔制御機能を前提とした
+		エアコン自動調整システムをWebサービスとして作成しようと考えた。
+		</p>
+		<p>
+		これにより、家庭に設置された複数のエアコンの動作状況・各部屋の温度を監視し、
+		各部屋の室温が設定された範囲になるようにエアコンの動作状態を遠隔から自動制御することで、
+		家庭での総消費電力量を制御できるようになる。この他に、一か所から宅内のエアコンを制御できるので、
+		リモコンを探す手間を減らすこともできる。
+		</p>
+		
+		<h3> 利用する技術 </h3>
+		<ol>
+			<li> SpringBoot, SpringMVC </li>
+			<li> HTML, Bootstrap, Thymeleaf </li>
+			<li> Java </li>
+		</ol>
+		</div>
+		
+		<div class="col-7 mb-3">
+		<img class="img-fluid" th:src="@{/images/hardstructure.jpg}">		
+		</div>
+	</div>
+	<!-- 
+	<form action="" method="post">
+	<input type="submit" class="btn btn-secondary btn-sm" value="戻る">
+	</form>  -->
+	<a th:href="@{/dash}" class="btn btn-secondary btn-sm">デモ開始</a>
+</main>
+</div>
+
+<div class="container-fluid text-center">
+<footer>
+	<p> <small> 令和5年3月期 ZDRIVE Javaシステム科(3か月) Webシステム開発応用実習 課題 </small> </p>
+</footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+/*
+body {
+	backgroud: lightgreen;
+}
+*/
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #4C8F50;
+  color: white;
+}
+
+td {
+	background-color: #4CAF50;
+	color: white;
+}
+
+/* tr:nth-child(even) {background-color: #f2f2f2;} */
+
+.error {
+	color: #f00;
+}
+
+.news_target span {
+	display: inline-block;
+	margin-right: 1em;
+}
+

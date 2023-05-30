@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>エアコン自動調整システム</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" media="all">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="text-center mt-4">
+<h1>エアコン自動調整システム</h1>
+
+<th:block th:if="${session.loginId}">
+<!-- ログイン済みの場合に表示:start -->
+	<a class="btn btn-primary btn-lg mt-4 mr-2" th:href="@{/start_page}">企画説明</a>
+<!-- ログイン済みの場合に表示:end -->
+</th:block>
+
+<th:block th:unless="${session.loginId}">
+<!-- ログインしていない場合に表示:start -->
+	<form class="mt-4" action="" method="post" th:object="${admin}">
+		<span th:errors="*{loginId}" class="error"> </span>
+		<p class="mt-2">ログインID：<input type="text"  th:field="*{loginId}"></p>
+		<p>パスワード：<input type="password" th:field="*{loginPass}"></p>
+		<input class="btn btn-primary" type="submit" value="ログイン">
+	</form>
+<!-- ログインしていない場合に表示:end -->
+</th:block>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="2; URL=">
+<title>HEMSダッシュボード</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container-fluid">
+<header>
+<h2 th:text="'HEMSダッシュボード (仮想日時：'+${time}+')'"></h2>
+</header>
+</div>
+<div class="container">
+<main>
+	<div class="row">
+		<div class="col-4 mb-3">
+		<h3>室温上/下限設定</h3>
+		<table class="table table-bordered" th:object="${RoomTemp}">
+		<tr> <th> 室温の上限 </th> <td th:text="*{max} + ℃"> </td> </tr>
+		<tr> <th> 室温の下限 </th> <td th:text="*{min} + ℃"> </td> </tr> 
+		<tr> 
+			<th colspan="2"> <a th:href="@{/roomtemp_set}" class="btn btn-secondary btn-sm">変更</a> </th>
+		</tr>
+		</table>
+		</div>
+		<div class="col-4 mb-3">
+		<h3> 家庭の電力使用量 </h3>
+		<table class="table table-bordered" th:object="${SmartMeter}">
+		<tr> <th> 消費電力 </th> <td th:text="*{powerConsumption}+W"> </td>  </tr>
+		<tr> <th> 積算消費電力量 </th><td th:text="${#numbers.formatDecimal(SmartMeter.energyConsumption, 1, 'COMMA', 1, 'POINT')}+Wh"> </td> </tr>
+		</table>
+		</div>
+		<div class="col-2 mb-3"> 
+		<h3>季節</h3>
+		<table class="table table-bordered">
+		<tr> <td th:if="*{season==1}">夏</td>
+		     <td th:if="*{season==-1}">冬</td>
+		</tr>
+		<tr>
+		<th> <a th:href="@{/season_set}" class="btn btn-secondary btn-sm">変更</a> </th>
+		</tr>
+		</table>
+		</div>
+		<div class="col-4 bm-3">
+		<h3>エアコン0状態 </h3>
+		<table class="table table-bordered" th:object="${AC0}">
+		<tr> <th> 動作モード </th>  		
+			 <td th:if="*{operationMode==0}">冷房運転</td> 
+			 <td th:if="*{operationMode==1}">暖房運転</td>			 			  	 
+		</tr>
+		<tr> <th> 動作状態 </th> 		
+			 <td th:if="*{operationState==0}">停止中</td> 
+			 <td th:if="*{operationState==1}">送風中</td>
+			 <td th:if="*{operationState==2}">動作中</td>		
+		</tr>
+		<tr> <th> 設定目標温度 </th> <td th:text="*{operationTargetTemp}+℃"> </td> </tr>
+		<tr> <th> 室温 </th> <td th:text="${#numbers.formatDecimal(AC0.temp, 1, 'COMMA', 1, 'POINT')}+℃"> </td> </tr>
+		<tr> 
+			<th colspan="2"> <a th:href="@{/airconditioner_set/0}" class="btn btn-secondary btn-sm">変更</a> </th>
+		</tr>
+		</table>
+		</div>
+		<div class="col-4 mb-3">
+		<h3>エアコン1状態 </h3>
+		<table class="table table-bordered" th:object="${AC1}">
+		<tr> <th> 動作モード </th>  		
+			 <td th:if="*{operationMode==0}">冷房運転</td> 
+			 <td th:if="*{operationMode==1}">暖房運転</td>			 			  	 
+		</tr>
+		<tr> <th> 動作状態 </th> 		
+			 <td th:if="*{operationState==0}">停止中</td> 
+			 <td th:if="*{operationState==1}">送風中</td>
+			 <td th:if="*{operationState==2}">動作中</td>	
+		</tr>
+		<tr> <th> 設定目標温度 </th> <td th:text="*{operationTargetTemp}+℃"> </td> </tr>
+		<tr> <th> 室温 </th> <td th:text="${#numbers.formatDecimal(AC1.temp, 1, 'COMMA', 1, 'POINT')}+℃"></td> </tr>
+		<tr> 
+			<th colspan="2"> <a th:href="@{/airconditioner_set/1}" class="btn btn-secondary btn-sm">変更</a> </th>
+		</tr>
+		</table>
+		</div>
+		<div class="col-4 mb-3">
+		<h3>エアコン2状態 </h3>
+		<table class="table table-bordered" th:object="${AC2}">
+		<tr> <th> 動作モード </th>  		
+			 <td th:if="*{operationMode==0}">冷房運転</td> 
+			 <td th:if="*{operationMode==1}">暖房運転</td>			 			  	 
+		</tr>
+		<tr> <th> 動作状態 </th> 		
+			 <td th:if="*{operationState==0}">停止中</td> 
+			 <td th:if="*{operationState==1}">送風中</td>
+			 <td th:if="*{operationState==2}">動作中</td>		
+		</tr>
+		<tr> <th> 設定目標温度 </th> <td th:text="*{operationTargetTemp}+℃"> </td> </tr>
+		<tr> <th> 室温 </th><td th:text="${#numbers.formatDecimal(AC2.temp, 1, 'COMMA', 1, 'POINT')}+℃"> </td> </tr>
+		<tr> 
+			<th colspan="2"> <a th:href="@{/airconditioner_set/2}" class="btn btn-secondary btn-sm">変更</a> </th>
+		</tr>
+		</table>
+		
+		</div>	
+	</div> <!-- class="raw" -->
+	<!-- 
+	<a th:href="@{/presen/intro}" class="btn btn-secondary btn-sm">企画</a> -->
+	<a th:href="@{/presen/design}" class="btn btn-secondary btn-sm">設計</a>
+	<a th:href="@{/presen/screen}" class="btn btn-secondary btn-sm">画面遷移</a>
+	<a th:href="@{/presen/dashboard}" class="btn btn-secondary btn-sm">ダッシュボード画面説明</a>
+	<a th:href="@{/presen/further}" class="btn btn-secondary btn-sm">今後の課題</a>
+	<a th:href="@{/logout}" class="btn btn-secondary btn-sm">ログアウト</a>
+</main>
+</div> <!-- class="container" -->
+
+<div class="container-fluid text-center">
+<footer>
+	<p> <small> 令和5年3月期 ZDRIVE Javaシステム科(3か月) Webシステム開発応用実習 課題 </small> </p>
+</footer>
+</div>
+
+</body>
+</html>

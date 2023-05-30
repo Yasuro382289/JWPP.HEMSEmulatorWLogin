@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>エアコン状態変更</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<div class="container-fluid">
+<header>
+<h3 th:text="'エアコン'+${AirCondId}+' 状態変更'"> </h3>
+<p> 動作モード、動作状態、設定温度が変えられます </p>
+</header>
+</div>
+
+<div class="container">
+<main>
+<div class="row">
+<div class="col-6 mb-3">
+
+<form action="" method="post" th:object="${ACState}">
+
+	<table class="table table-bordered">
+	<tr>
+	<th>動作モード</th>
+	<!-- <td> <input type="text" th:field="*{OperationMode}"> </td> -->
+	<td>
+	<select class="form-select" th:field="*{operationMode}">					
+					<option value="0">冷房</option>
+					<option value="1">暖房</option>
+	</select>
+	</td> 
+	</tr>
+	<tr>
+	<th>動作状態</th>
+	<!-- <td><input type="text" th:field="*{OperationState}"></td> -->
+	<td>
+	<select class="form-select" th:field="*{operationState}">					
+					<option value="0">停止中</option>
+					<option value="1">送風中</option>
+					<option value="2">動作中</option>
+	</select>
+	</td>
+	</tr>
+	<tr>
+	<th>設定目標温度</th>
+	<td><input type="number" step="0.1" th:field="*{operationTargetTemp}">℃ </td>
+	</tr>
+	<tr>
+	<th>室温</th>
+	<td th:text="${#numbers.formatDecimal(ACState.temp, 1, 'COMMA', 1, 'POINT')} + ℃"></td>
+	</tr>
+	<tr>
+	<th colspan="2"> <input type="submit" class="btn btn-secondary btn-sm" value="変更する"> </th>
+	</tr>
+	</table>
+	
+</form>
+
+</div>
+</div>
+</main>
+</div>
+
+<div class="container-fluid">
+<footer>
+	<p> <small> 令和5年3月期 ZDRIVE Javaシステム科(3か月) Webシステム開発応用実習 課題 </small> </p>
+</footer>
+</div>
+
+</body>
+</html>

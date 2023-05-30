@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>今後の課題</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container-fluid">
+<header>
+<h2>Webシステム開発応用実習 今後の課題</h2>
+</header>
+</div>
+<div class="container">
+<main>
+	<div class="row">
+		<div class="col-5 mb-3">
+		
+		<h3> 今後の課題 </h3>
+		
+		<ul> 
+			<li> アプリの動作制御機能：タイマーのスタート/ストップ機能の追加 </li>
+			<li> HEMSダッシュボードの情報はプライバシー情報そのものなのでセキュリティへの配慮が必要
+			<ul>
+				<li> Wi-Fiの利用を想定するので無線リンクの不正使用に関する保護が必要：Wi-Fiルータの機能 </li>
+				<li> HEMSダッシュボードへの不正アクセスに関する保護が必要：ユーザー登録などログイン機能の充実 </li>
+				<li> 不正データ入力に関する配慮：ダッシュボードデータへのバリデーションの適用</li>				
+				<li> httpsの適用</li>
+				<li> 等。。。</li>
+			</ul>
+			 </li>
+		</ul>
+		
+		</div>
+		
+		<div class="col-5 mb-3">
+		<h3>さらなる課題 </h3>
+		
+		<ul>
+			<li> 実機へのアクセス機能 
+			<ul>
+			<li> Wi-Fiルータが実機に割り当てるIPアドレスを取り込み、メッセージを作成してネットワーク経由で通信</li>
+			<li> 実機のコマンド(ECHONET Lite等)とWebサービスでのデータのマッピング </li>
+			<li> セキュリティへのさらなる配慮：外部から不正に実機を制御されないように </li>
+			</ul>
+			</li>
+			 
+			<li> 宅内機器構成変更への対応
+			<ul>
+				<li> 宅内機器構成の登録・削除機能の実装 </li>
+				<li> ダッシュボードの表示を変更する機能の実装 </li>
+				<li> 宅内機器に割り当てられたIPアドレスの管理 - DHCPタイムアウトへの対応等 </li>
+				<li> 「IoTプラットフォーム」が開発されているので、その適用も考えられる </li>
+			</ul>
+			</li>
+		</ul>
+			
+		</div>
+	</div>
+	<form action="" method="post">
+	<input type="submit" class="btn btn-secondary btn-sm" value="戻る">
+	</form>
+</main>
+</div>
+
+<div class="container-fluid text-center">
+<footer>
+	<p> <small> 令和5年3月期 ZDRIVE Javaシステム科(3か月) Webシステム開発応用実習 課題 </small> </p>
+</footer>
+</div>
+
+</body>
+</html>

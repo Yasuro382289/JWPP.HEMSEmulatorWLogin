@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>室温上限・下限設定</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container-fluid">
+<header>
+<h3>室温の上限・下限が変えられます。</h3>
+</header>
+</div>
+<div class="container">
+<main>
+	<div class="row">
+		<div class="col-5 mb-3">
+		
+		<form action="" method="post" th:object="${RoomTemp}">
+			<table class="table table-bordered">
+			<tr>
+				<th>室温の上限</th>
+				<td> <input type="number" step="0.1" th:field="*{max}"> ℃ </td>
+			</tr>
+			<tr>
+				<th>室温の下限</th>
+				<td> <input type="number" step="0.1" th:field="*{min}"> ℃ </td>
+			</tr>
+			<tr>
+				<th colspan="2"> <input type="submit" class="btn btn-secondary btn-sm" value="変更する"> </th>
+			</tr>
+			</table>
+		</form>
+		</div>
+	</div>
+</main>
+</div>
+
+<div class="container-fluid">
+<footer>
+	<p> <small> 令和5年3月期 ZDRIVE Javaシステム科(3か月) Webシステム開発応用実習 課題 </small> </p>
+</footer>
+</div>
+
+</body>
+</html>
